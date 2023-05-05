@@ -34,8 +34,10 @@
           class="pointers-item__line-empty"
           v-if="index == goals[0] || index == goals.length - 1"
         ></div>
-        <p v-if="index !== goals.length - 1">{{ goal }}</p>
-        <p v-if="index == goals.length - 1">{{ this.progress }}/1000</p>
+        <p v-if="this.progress <= goal && stage == index">
+          {{ this.progress }}/{{ goal }}
+        </p>
+        <p v-if="stage !== index">{{ goal }}</p>
       </div>
     </div>
     <div class="wrapper__progressBar">
